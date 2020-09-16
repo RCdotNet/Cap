@@ -1,4 +1,8 @@
 pipeline {
+    environment {
+        myimage = "zerocodebit/projectcapstone"
+        targetCredential = 'dockerhub'
+        }
      agent any
      stages {
          stage('Build') {
@@ -13,11 +17,14 @@ pipeline {
          }
          stage('Build Docker Image') {
               steps {
-                  sh 'docker build -t projectcapstone .'
+                  myimage = docker.build myimage
               }
          }
          stage('Push Docker Image') {
               steps {
+                  script {
+                    myimage = docker.build myimage
+                    }
                   withDockerRegistry([url: "", credentialsId: "docker-hub"]) {
                       sh "docker tag projectcapstone zerocodebit/projectcapstone"
                       sh 'docker push zerocodebit/projectcapstone'
