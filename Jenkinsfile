@@ -1,10 +1,8 @@
 pipeline {
-    environment {
-        script{
-            myimage = "zerocodebit/projectcapstone"
-            targetCredential = 'dockerhub'
-            }
-        }
+    environment 
+        myimage = "zerocodebit/projectcapstone"
+        targetCredential = 'dockerhub'
+        
      agent any
      stages {
          stage('Build') {
@@ -19,7 +17,10 @@ pipeline {
          }
          stage('Build Docker Image') {
               steps {
-                  myimage = docker.build myimage
+                  script{
+                      myimage = docker.build myimage
+                  }
+                  
               }
          }
          stage('Push Docker Image') {
