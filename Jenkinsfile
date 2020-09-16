@@ -27,7 +27,6 @@ pipeline {
          }
          stage('Push Docker Image') {
               steps {
-                  
                   script{
                       myimage = docker.build myimage
                   }
