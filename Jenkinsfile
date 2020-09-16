@@ -28,7 +28,10 @@ pipeline {
          stage('Push Docker Image') {
               steps {
                   
-                  myimage = docker.build myimage
+                  script{
+                      myimage = docker.build myimage
+                  }
+                  
                   withDockerRegistry([url: "", credentialsId: "docker-hub"]) {
                       sh "docker tag projectcapstone zerocodebit/projectcapstone"
                       sh 'docker push zerocodebit/projectcapstone'
