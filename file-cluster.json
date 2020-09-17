@@ -50,22 +50,22 @@
           ],
           "SubnetIds": [
             {
-              "Ref": "SubnetPublicUSEAST2A"
+              "Ref": "SubnetPublicUSWEST2A"
             },
             {
-              "Ref": "SubnetPublicUSEAST2C"
+              "Ref": "SubnetPublicUSWEST2C"
             },
             {
-              "Ref": "SubnetPublicUSEAST2B"
+              "Ref": "SubnetPublicUSWEST2B"
             },
             {
-              "Ref": "SubnetPrivateUSEAST2B"
+              "Ref": "SubnetPrivateUSWEST2B"
             },
             {
-              "Ref": "SubnetPrivateUSEAST2A"
+              "Ref": "SubnetPrivateUSWEST2A"
             },
             {
-              "Ref": "SubnetPrivateUSEAST2C"
+              "Ref": "SubnetPrivateUSWEST2C"
             }
           ]
         },
@@ -169,7 +169,7 @@
           ]
         },
         "SubnetId": {
-          "Ref": "SubnetPublicUSEAST2B"
+          "Ref": "SubnetPublicUSWEST2B"
         },
         "Tags": [
           {
@@ -195,7 +195,7 @@
         ]
       }
     },
-    "NATPrivateSubnetRouteUSEAST2A": {
+    "NATPrivateSubnetRouteUSWEST2A": {
       "Type": "AWS::EC2::Route",
       "Properties": {
         "DestinationCidrBlock": "0.0.0.0/0",
@@ -203,11 +203,11 @@
           "Ref": "NATGateway"
         },
         "RouteTableId": {
-          "Ref": "PrivateRouteTableUSEAST2A"
+          "Ref": "PrivateRouteTableUSWEST2A"
         }
       }
     },
-    "NATPrivateSubnetRouteUSEAST2B": {
+    "NATPrivateSubnetRouteUSWEST2B": {
       "Type": "AWS::EC2::Route",
       "Properties": {
         "DestinationCidrBlock": "0.0.0.0/0",
@@ -215,11 +215,11 @@
           "Ref": "NATGateway"
         },
         "RouteTableId": {
-          "Ref": "PrivateRouteTableUSEAST2B"
+          "Ref": "PrivateRouteTableUSWEST2B"
         }
       }
     },
-    "NATPrivateSubnetRouteUSEAST2C": {
+    "NATPrivateSubnetRouteUSWEST2C": {
       "Type": "AWS::EC2::Route",
       "Properties": {
         "DestinationCidrBlock": "0.0.0.0/0",
@@ -227,7 +227,7 @@
           "Ref": "NATGateway"
         },
         "RouteTableId": {
-          "Ref": "PrivateRouteTableUSEAST2C"
+          "Ref": "PrivateRouteTableUSWEST2C"
         }
       }
     },
@@ -283,14 +283,14 @@
         ]
       }
     },
-    "PrivateRouteTableUSEAST2A": {
+    "PrivateRouteTableUSWEST2A": {
       "Type": "AWS::EC2::RouteTable",
       "Properties": {
         "Tags": [
           {
             "Key": "Name",
             "Value": {
-              "Fn::Sub": "${AWS::StackName}/PrivateRouteTableUSEAST2A"
+              "Fn::Sub": "${AWS::StackName}/PrivateRouteTableUSWEST2A"
             }
           }
         ],
@@ -299,14 +299,14 @@
         }
       }
     },
-    "PrivateRouteTableUSEAST2B": {
+    "PrivateRouteTableUSWEST2B": {
       "Type": "AWS::EC2::RouteTable",
       "Properties": {
         "Tags": [
           {
             "Key": "Name",
             "Value": {
-              "Fn::Sub": "${AWS::StackName}/PrivateRouteTableUSEAST2B"
+              "Fn::Sub": "${AWS::StackName}/PrivateRouteTableUSWEST2B"
             }
           }
         ],
@@ -315,14 +315,14 @@
         }
       }
     },
-    "PrivateRouteTableUSEAST2C": {
+    "PrivateRouteTableUSWEST2C": {
       "Type": "AWS::EC2::RouteTable",
       "Properties": {
         "Tags": [
           {
             "Key": "Name",
             "Value": {
-              "Fn::Sub": "${AWS::StackName}/PrivateRouteTableUSEAST2C"
+              "Fn::Sub": "${AWS::StackName}/PrivateRouteTableUSWEST2C"
             }
           }
         ],
@@ -362,69 +362,69 @@
         "VPCGatewayAttachment"
       ]
     },
-    "RouteTableAssociationPrivateUSEAST2A": {
+    "RouteTableAssociationPrivateUSWEST2A": {
       "Type": "AWS::EC2::SubnetRouteTableAssociation",
       "Properties": {
         "RouteTableId": {
-          "Ref": "PrivateRouteTableUSEAST2A"
+          "Ref": "PrivateRouteTableUSWEST2A"
         },
         "SubnetId": {
-          "Ref": "SubnetPrivateUSEAST2A"
+          "Ref": "SubnetPrivateUSWEST2A"
         }
       }
     },
-    "RouteTableAssociationPrivateUSEAST2B": {
+    "RouteTableAssociationPrivateUSWEST2B": {
       "Type": "AWS::EC2::SubnetRouteTableAssociation",
       "Properties": {
         "RouteTableId": {
-          "Ref": "PrivateRouteTableUSEAST2B"
+          "Ref": "PrivateRouteTableUSWEST2B"
         },
         "SubnetId": {
-          "Ref": "SubnetPrivateUSEAST2B"
+          "Ref": "SubnetPrivateUSWEST2B"
         }
       }
     },
-    "RouteTableAssociationPrivateUSEAST2C": {
+    "RouteTableAssociationPrivateUSWEST2C": {
       "Type": "AWS::EC2::SubnetRouteTableAssociation",
       "Properties": {
         "RouteTableId": {
-          "Ref": "PrivateRouteTableUSEAST2C"
+          "Ref": "PrivateRouteTableUSWEST2C"
         },
         "SubnetId": {
-          "Ref": "SubnetPrivateUSEAST2C"
+          "Ref": "SubnetPrivateUSWEST2C"
         }
       }
     },
-    "RouteTableAssociationPublicUSEAST2A": {
+    "RouteTableAssociationPublicUSWEST2A": {
       "Type": "AWS::EC2::SubnetRouteTableAssociation",
       "Properties": {
         "RouteTableId": {
           "Ref": "PublicRouteTable"
         },
         "SubnetId": {
-          "Ref": "SubnetPublicUSEAST2A"
+          "Ref": "SubnetPublicUSWEST2A"
         }
       }
     },
-    "RouteTableAssociationPublicUSEAST2B": {
+    "RouteTableAssociationPublicUSWEST2B": {
       "Type": "AWS::EC2::SubnetRouteTableAssociation",
       "Properties": {
         "RouteTableId": {
           "Ref": "PublicRouteTable"
         },
         "SubnetId": {
-          "Ref": "SubnetPublicUSEAST2B"
+          "Ref": "SubnetPublicUSWEST2B"
         }
       }
     },
-    "RouteTableAssociationPublicUSEAST2C": {
+    "RouteTableAssociationPublicUSWEST2C": {
       "Type": "AWS::EC2::SubnetRouteTableAssociation",
       "Properties": {
         "RouteTableId": {
           "Ref": "PublicRouteTable"
         },
         "SubnetId": {
-          "Ref": "SubnetPublicUSEAST2C"
+          "Ref": "SubnetPublicUSWEST2C"
         }
       }
     },
@@ -482,10 +482,10 @@
         ]
       }
     },
-    "SubnetPrivateUSEAST2A": {
+    "SubnetPrivateUSWEST2A": {
       "Type": "AWS::EC2::Subnet",
       "Properties": {
-        "AvailabilityZone": "us-east-2a",
+        "AvailabilityZone": "us-west-2a",
         "CidrBlock": "192.168.128.0/19",
         "Tags": [
           {
@@ -495,7 +495,7 @@
           {
             "Key": "Name",
             "Value": {
-              "Fn::Sub": "${AWS::StackName}/SubnetPrivateUSEAST2A"
+              "Fn::Sub": "${AWS::StackName}/SubnetPrivateUSWEST2A"
             }
           }
         ],
@@ -504,10 +504,10 @@
         }
       }
     },
-    "SubnetPrivateUSEAST2B": {
+    "SubnetPrivateUSWEST2B": {
       "Type": "AWS::EC2::Subnet",
       "Properties": {
-        "AvailabilityZone": "us-east-2b",
+        "AvailabilityZone": "us-west-2b",
         "CidrBlock": "192.168.96.0/19",
         "Tags": [
           {
@@ -517,7 +517,7 @@
           {
             "Key": "Name",
             "Value": {
-              "Fn::Sub": "${AWS::StackName}/SubnetPrivateUSEAST2B"
+              "Fn::Sub": "${AWS::StackName}/SubnetPrivateUSWEST2B"
             }
           }
         ],
@@ -526,10 +526,10 @@
         }
       }
     },
-    "SubnetPrivateUSEAST2C": {
+    "SubnetPrivateUSWEST2C": {
       "Type": "AWS::EC2::Subnet",
       "Properties": {
-        "AvailabilityZone": "us-east-2c",
+        "AvailabilityZone": "us-west-2c",
         "CidrBlock": "192.168.160.0/19",
         "Tags": [
           {
@@ -539,7 +539,7 @@
           {
             "Key": "Name",
             "Value": {
-              "Fn::Sub": "${AWS::StackName}/SubnetPrivateUSEAST2C"
+              "Fn::Sub": "${AWS::StackName}/SubnetPrivateUSWEST2C"
             }
           }
         ],
@@ -548,10 +548,10 @@
         }
       }
     },
-    "SubnetPublicUSEAST2A": {
+    "SubnetPublicUSWEST2A": {
       "Type": "AWS::EC2::Subnet",
       "Properties": {
-        "AvailabilityZone": "us-east-2a",
+        "AvailabilityZone": "us-west-2a",
         "CidrBlock": "192.168.32.0/19",
         "MapPublicIpOnLaunch": true,
         "Tags": [
@@ -562,7 +562,7 @@
           {
             "Key": "Name",
             "Value": {
-              "Fn::Sub": "${AWS::StackName}/SubnetPublicUSEAST2A"
+              "Fn::Sub": "${AWS::StackName}/SubnetPublicUSWEST2A"
             }
           }
         ],
@@ -571,10 +571,10 @@
         }
       }
     },
-    "SubnetPublicUSEAST2B": {
+    "SubnetPublicUSWEST2B": {
       "Type": "AWS::EC2::Subnet",
       "Properties": {
-        "AvailabilityZone": "us-east-2b",
+        "AvailabilityZone": "us-west-2b",
         "CidrBlock": "192.168.0.0/19",
         "MapPublicIpOnLaunch": true,
         "Tags": [
@@ -585,7 +585,7 @@
           {
             "Key": "Name",
             "Value": {
-              "Fn::Sub": "${AWS::StackName}/SubnetPublicUSEAST2B"
+              "Fn::Sub": "${AWS::StackName}/SubnetPublicUSWEST2B"
             }
           }
         ],
@@ -594,10 +594,10 @@
         }
       }
     },
-    "SubnetPublicUSEAST2C": {
+    "SubnetPublicUSWEST2C": {
       "Type": "AWS::EC2::Subnet",
       "Properties": {
-        "AvailabilityZone": "us-east-2c",
+        "AvailabilityZone": "us-west-2c",
         "CidrBlock": "192.168.64.0/19",
         "MapPublicIpOnLaunch": true,
         "Tags": [
@@ -608,7 +608,7 @@
           {
             "Key": "Name",
             "Value": {
-              "Fn::Sub": "${AWS::StackName}/SubnetPublicUSEAST2C"
+              "Fn::Sub": "${AWS::StackName}/SubnetPublicUSWEST2C"
             }
           }
         ],
@@ -745,13 +745,13 @@
           ",",
           [
             {
-              "Ref": "SubnetPrivateUSEAST2B"
+              "Ref": "SubnetPrivateUSWEST2B"
             },
             {
-              "Ref": "SubnetPrivateUSEAST2A"
+              "Ref": "SubnetPrivateUSWEST2A"
             },
             {
-              "Ref": "SubnetPrivateUSEAST2C"
+              "Ref": "SubnetPrivateUSWEST2C"
             }
           ]
         ]
@@ -768,13 +768,13 @@
           ",",
           [
             {
-              "Ref": "SubnetPublicUSEAST2A"
+              "Ref": "SubnetPublicUSWEST2A"
             },
             {
-              "Ref": "SubnetPublicUSEAST2C"
+              "Ref": "SubnetPublicUSWEST2C"
             },
             {
-              "Ref": "SubnetPublicUSEAST2B"
+              "Ref": "SubnetPublicUSWEST2B"
             }
           ]
         ]

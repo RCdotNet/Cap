@@ -1,10 +1,8 @@
 pipeline {
     environment {
-        myimage = "zerocodebit/projectcapstone"
-        targetCredential = 'dockerhub'
-    }
-        
-
+        myimage = "rcdotnet/projectcapstone"
+        targetCredential = 'Docker'
+        }
      agent any
      stages {
          stage('Build') {
@@ -27,7 +25,6 @@ pipeline {
          }
          stage('Push Docker Image') {
               steps {
-
                   script{
                       docker.withRegistry( '', targetCredential ){
                           myimage.push()
@@ -39,9 +36,8 @@ pipeline {
          stage('Deploying') {
               steps{
                   echo 'Deploying to AWS...'
-                  withAWS(credentials: 'newec2user', region: 'us-east-2') {
-                      sh 'aws sts get-caller-identity'
-                      sh "aws eks --region us-east-2 update-kubeconfig --name capstonecluster"
+                  withAWS(credentials: 'AWSCred', region: 'us-west-2') {
+                      sh "aws eks --region us-west-2 update-kubeconfig --name capstonecluster"
                       sh "kubectl apply -f deployment/deployment.yml"
                       sh "kubectl get nodes"
                       sh "kubectl get deployment"
