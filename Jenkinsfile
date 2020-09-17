@@ -40,6 +40,7 @@ pipeline {
               steps{
                   echo 'Deploying to AWS...'
                   withAWS(credentials: 'newec2user', region: 'us-east-2') {
+                      sh 'aws sts get-caller-identity'
                       sh "aws eks --region us-east-2 update-kubeconfig --name capstonecluster"
                       sh "kubectl apply -f deployment/deployment.yml"
                       sh "kubectl get nodes"
