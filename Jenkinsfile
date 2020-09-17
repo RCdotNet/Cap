@@ -39,7 +39,7 @@ pipeline {
          stage('Deploying') {
               steps{
                   echo 'Deploying to AWS...'
-                  withAWS(credentials: 'aws', region: 'us-east-2b') {
+                  withAWS(credentials: 'new aws user', region: 'us-east-2') {
                       sh "aws eks --region us-east-2b update-kubeconfig --name capstonecluster"
                       sh "kubectl apply -f deployment/deployment.yml"
                       sh "kubectl get nodes"
