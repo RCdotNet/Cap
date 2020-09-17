@@ -37,12 +37,13 @@ pipeline {
               steps{
                   echo 'Deploying to AWS...'
                   withAWS(credentials: 'AWSCred', region: 'us-west-2') {
-                      sh "aws eks update-kubeconfig --name capstonecluster"
-                      sh "kubectl apply -f deployment/deployment.yml"
-                      sh "kubectl get nodes"
-                      sh "kubectl get deployment"
-                      sh "kubectl get pod -o wide"
-                      sh "kubectl get service/projectcapstone"
+                    sh 'aws sts get-caller-identity'
+                      sh 'aws eks update-kubeconfig --name capstonecluster'
+                      sh 'kubectl apply -f deployment/deployment.yml'
+                      sh 'kubectl get nodes'
+                      sh 'kubectl get deployment'
+                      sh 'kubectl get pod -o wide'
+                      sh 'kubectl get service/projectcapstone'
                   }
               }
         }
