@@ -41,7 +41,7 @@
           },
           "SecurityGroupIds": [
             {
-              "Fn::ImportValue": "eksctl-capstonecluster-cluster::ClusterSecurityGroupId"
+              "Fn::ImportValue": "cluster::ClusterSecurityGroupId"
             }
           ],
           "TagSpecifications": [
@@ -94,7 +94,7 @@
           "Fn::Split": [
             ",",
             {
-              "Fn::ImportValue": "eksctl-capstonecluster-cluster::SubnetsPublic"
+              "Fn::ImportValue": "cluster::SubnetsPublic"
             }
           ]
         },
