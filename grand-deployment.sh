@@ -8,7 +8,7 @@ aws cloudformation wait stack-create-complete --stack-name nodes
 
 aws eks update-kubeconfig --name capstonecluster
 
-kubectl apply -f deployment/deploymet.yml
+kubectl apply -f deployment/deployment.yml
 kubectl apply -f deployment/load-balancer.yml
 
 kubectl rollout status deployment/projectcapstone
