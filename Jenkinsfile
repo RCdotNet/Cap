@@ -36,7 +36,7 @@ pipeline {
 
                   }
          }
-         stage('Deploying') {
+         stage('Deploying1') {
               steps{
                   echo 'Deploying to AWS...'
                   withAWS(credentials: 'newec2user', region: 'us-east-2') {
@@ -45,7 +45,7 @@ pipeline {
                   }
               }
         }
-        stage('Deploying') {
+        stage('Deploying2') {
               steps{
                   echo 'Deploying to AWS...'
                   withAWS(credentials: 'newec2user', region: 'us-east-2') {
