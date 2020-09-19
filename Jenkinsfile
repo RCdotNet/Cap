@@ -38,6 +38,7 @@ pipeline {
                   echo 'Deploying to AWS...'
                   withAWS(region: 'us-west-2',credentials: 'AWSCred') {
                     sh 'aws sts get-caller-identity'
+                    sh 'echo Kubeconfig: $KUBECONFIG'
                       sh 'aws eks update-kubeconfig --name capstonecluster'
                       sh './rollout.sh'
                       sh 'kubectl get nodes'
