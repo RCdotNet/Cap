@@ -39,7 +39,7 @@ pipeline {
                   withAWS(region: 'us-west-2',credentials: 'AWSCred') {
                     sh 'aws sts get-caller-identity'
                       sh 'aws eks update-kubeconfig --name capstonecluster'
-                      sh 'kubectl apply -f deployment/deployment.yml'
+                      sh './rollout.sh'
                       sh 'kubectl get nodes'
                       sh 'kubectl get deployment'
                       sh 'kubectl get pod -o wide'
