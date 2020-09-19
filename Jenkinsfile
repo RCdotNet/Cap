@@ -33,7 +33,7 @@ pipeline {
 
             }
          }
-         stage('Deploying') {
+         stage('Deploying1') {
               steps{
                   echo 'Deploying to AWS...'
                   withAWS(region: 'us-west-2',credentials: 'AWSCred') {
@@ -50,7 +50,7 @@ pipeline {
         stage("Cleaning up") {
               steps{
                     echo 'Cleaning up...'
-                    sh "docker system prune"
+                    sh 'docker system prune'
               }
         }
      }
