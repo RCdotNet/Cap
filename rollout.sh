@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+whoami
 kubectl config current-context
 kubectl config get-contexts
 kubectl apply -f deployment/deployment.yml
