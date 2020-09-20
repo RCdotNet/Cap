@@ -40,17 +40,13 @@ pipeline {
                     sh 'aws sts get-caller-identity'
                     sh 'echo Kubeconfig: $KUBECONFIG'
                       sh 'aws eks update-kubeconfig --name capstonecluster'
-                      sh './rollout.sh'
-                      sh 'kubectl get nodes'
-                      sh 'kubectl get deployment'
-                      sh 'kubectl get pod -o wide'
-                      sh 'kubectl get service/projectcapstone'
                   }
               }
         }
-        stage("Cleaning up") {
+        stage("Deploying and Cleaning up") {
               steps{
                     echo 'Cleaning up...'
+                    sh './rollout.sh'
                     sh 'docker system prune'
               }
         }
