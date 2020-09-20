@@ -21,8 +21,7 @@ spec:
         app: projectcapstone
     spec:
       containers:
-        - image: zerocodebit/projectcapstone
-          imagePullPolicy: Always
+        - image: rcdotnet/projectcapstone
           name: projectcapstone
           ports:
             - containerPort: 80
