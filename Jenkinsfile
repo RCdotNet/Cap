@@ -1,6 +1,6 @@
 pipeline {
     environment {
-        myimage = "rcdotnet/projectcapstone"
+        myimage = "rcdotnet/projectcapstone:v1"
         targetCredential = 'Docker'
         }
      agent any
