@@ -46,8 +46,14 @@ pipeline {
         stage("Deploying and Cleaning up") {
               steps{
                     echo 'Cleaning up...'
-                    sh './rollout.sh'
-                    sh 'docker system prune'
+                    sh '''
+                    kubectl rollout status deployment/projectcapstone
+                    kubectl get nodes
+                    kubectl get deployment
+                    kubectl get pod -o wide
+                    kubectl get service/projectcapstone
+                    docker system prune
+                    '''
               }
         }
      }
