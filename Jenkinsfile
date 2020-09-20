@@ -47,7 +47,7 @@ pipeline {
               steps{
                     echo 'Cleaning up...'
                     sh '''
-                    kubectl apply -f deployment/deployment.yml
+                    kubectl rollout restart deployments/projectcapstone
                     kubectl rollout status deployment/projectcapstone
                     kubectl get nodes
                     kubectl get deployment
